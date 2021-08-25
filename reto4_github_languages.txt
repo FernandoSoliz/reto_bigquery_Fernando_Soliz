@@ -1,0 +1,8 @@
+#Muestra un top de los lenguajes mas usados en los repositorios
+SELECT
+nombre.name,
+count(*) as reposCount
+FROM
+  `bigquery-public-data.github_repos.languages` ,UNNEST(language) AS nombre
+  group by nombre.name
+  order by reposCount desc
