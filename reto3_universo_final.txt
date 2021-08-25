@@ -1,0 +1,33 @@
+#En mi anterior tabla de reto3_universo habian muchas ventas unitarias del mismo producto,mismo cliente,misma fecha,etc. entonces lo
+#que hice fue agrupar estas ventas y manejar totales en cantidad y asi poder tener una tabla mejor resumida.
+SELECT
+  codigo_cliente,
+  nombre_cliente,
+  direccion,
+  colonia,
+  codigo_postal,
+  destino,
+  fecha,
+  usuario,
+  codigo_articulo,
+  nombre_articulo,
+  unidad_medida,
+  costo,
+  precio,
+  SUM(cantidad) AS cantidad
+FROM
+  `bootcamp-tismart.retos_fernando_soliz.reto3_universo`
+GROUP BY
+  codigo_cliente,
+  nombre_cliente,
+  direccion,
+  colonia,
+  codigo_postal,
+  destino,
+  fecha,
+  usuario,
+  codigo_articulo,
+  nombre_articulo,
+  unidad_medida,
+  costo,
+  precio
