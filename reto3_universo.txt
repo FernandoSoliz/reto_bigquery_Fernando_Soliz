@@ -1,0 +1,54 @@
+
+SELECT
+   TAB1.codigo_cliente,
+  destino,
+  fecha,
+  TAB1.codigo_articulo,
+  usuario,
+  cantidad,
+  precio,
+  TABJOIN.nombre_cliente,
+  TABJOIN.direccion,
+  TABJOIN.colonia,
+  TABJOIN.codigo_postal,
+  TABJOIN.telefono
+  nombre_articulo,
+  unidad_medida,
+  costo
+
+
+FROM(
+###TABLA-1
+SELECT
+  codigo_cliente,
+  destino,
+  fecha,
+  codigo_articulo,
+  usuario,
+  cantidad,
+  precio
+FROM
+  `bootcamp-tismart.retos_fernando_soliz.registro_venta`)  TAB1
+
+  ###LEFT JOIN
+  LEFT JOIN(
+      SELECT
+  codigo_cliente,
+  nombre_cliente,
+  direccion,
+  colonia,
+  codigo_postal,
+  telefono
+FROM
+  `bootcamp-tismart.retos_fernando_soliz.registro_cliente` ) TABJOIN
+  ON TABJOIN.codigo_cliente= TAB1.codigo_cliente
+
+left join(
+    SELECT
+  codigo_articulo,
+  nombre_articulo,
+  unidad_medida,
+  costo
+FROM
+  `bootcamp-tismart.retos_fernando_soliz.registro_inventario` ) TABJOIN2
+  ON TAB1.codigo_articulo= TABJOIN2.codigo_articulo
