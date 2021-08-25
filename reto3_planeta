@@ -1,0 +1,12 @@
+#Informacion relevante de reto3_universo
+#Simplemente seleccion las columnas que sean relevante de mi tabla reto3_universo_final
+SELECT
+  codigo_cliente,
+  nombre_cliente,
+  direccion,
+  fecha,
+  codigo_articulo,
+  nombre_articulo,
+  precio
+FROM
+  `bootcamp-tismart.retos_fernando_soliz.reto3_universo_final`
